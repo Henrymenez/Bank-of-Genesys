@@ -9,9 +9,9 @@ const transactionSchema = new Schema(
       required: true,
     },
     receiver: {
-       type: Number,
-        required: true,
-        default: 0
+      type: Number,
+      required: true,
+      default: 0
     },
     status: {
       type: String,
@@ -19,8 +19,8 @@ const transactionSchema = new Schema(
       default: 'Approved'
     },
     amount: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true
     },
     type: {
       type: String,
@@ -35,10 +35,10 @@ const transactionSchema = new Schema(
   }
 )
 
-transactionSchema.virtual('sendTo',{
-    ref: 'User',
-    localField: 'receiver',
-    foreignField: '_id'
+transactionSchema.virtual('sendTo', {
+  ref: 'User',
+  localField: 'receiver',
+  foreignField: '_id'
 })
 
 module.exports = mongoose.model("transaction", transactionSchema)

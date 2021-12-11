@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const User = require("../models/user")
- const JWT_SECRET_KEY = 'thisismytokencode'
+const JWT_SECRET_KEY = 'thisismytokencode'
 
 const auth = {}
 
@@ -13,7 +13,7 @@ auth.signin = async (req, res) => {
     if (!user) return res.status(400).send({ message: "Invalid email or password" })
     const isValidPassword = await bcrypt.compare(data.password, user.password)
     if (!isValidPassword) return res.status(400).send({ message: "Invalid email or password" })
-    if(!user.status)return res.status(403).send({ message: "You have been disabled" })
+    if (!user.status) return res.status(403).send({ message: "You have been disabled" })
 
     const token = jwt.sign({ user_id: user._id }, JWT_SECRET_KEY)
 
@@ -25,7 +25,7 @@ auth.signin = async (req, res) => {
         email: user.email,
         full_name: user.full_name,
         age: user.age,
-      account_number: user.account_number
+        account_number: user.account_number
       }
     })
   } catch (error) {

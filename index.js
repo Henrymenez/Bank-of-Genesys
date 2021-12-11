@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 
- 
+
 app.get('/ping', (req, res) => {
   res.status(200).send("Welcome to the Genesys Bank!")
 });

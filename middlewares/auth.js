@@ -9,8 +9,8 @@ module.exports = () => {
       const decoded = jwt.decode(token)
 
       const user = await User.findById(decoded.user_id)
-      if (!user) throw new Error("Unauthorized user") 
-      req.USER_ID = user._id 
+      if (!user) throw new Error("Unauthorized user")
+      req.USER_ID = user._id
       req.token = token
 
       next()

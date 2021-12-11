@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const User = require("../models/user")
 const Transaction = require("../models/transactions")
- const JWT_SECRET_KEY = 'thisismytokencode'
+const JWT_SECRET_KEY = 'thisismytokencode'
 
 const admin = {}
 
@@ -30,8 +30,8 @@ admin.signup = async (req, res) => {
         email: user.email,
         full_name: user.full_name,
         age: user.age,
-      transaction_pin: user.transaction_pin,
-      account_number: user.account_number
+        transaction_pin: user.transaction_pin,
+        account_number: user.account_number
 
       }
     })
@@ -43,7 +43,7 @@ admin.signup = async (req, res) => {
 
 admin.delete = async (req, res) => {
   try {
-   
+
     const user = await User.findByIdAndDelete(req.params.user_id)
     if (!user) return res.status(403).send({ message: "User Not Found" })
     res.status(200).send({ message: "User deleted", data: user })
@@ -55,9 +55,9 @@ admin.delete = async (req, res) => {
 admin.disable = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.user_id, {
-        $set: {
-            status: false
-         }
+      $set: {
+        status: false
+      }
     }, { new: true })
     if (!user) return res.status(403).send({ message: "User Not Found" })
     res.status(200).send({ message: "User Disabled", data: user })
@@ -70,26 +70,26 @@ admin.updateTransaction = async (req, res) => {
   try {
     const status = {};
 
-    if(req.query.status === 'approve'){
+    if (req.query.status === 'approve') {
       status.status = 'Approve'
-    }else if(req.query.status === 'decline'){
-       status.status = 'Declined'
-    }else if(!req.query.status){
+    } else if (req.query.status === 'decline') {
+      status.status = 'Declined'
+    } else if (!req.query.status) {
       status.status = 'Approve'
     }
-  
-    const trans = await Transaction.findByIdAndUpdate(req.params.transaction_id,{ $set: status  }, 
+
+    const trans = await Transaction.findByIdAndUpdate(req.params.transaction_id, { $set: status },
       { new: true })
- if (!trans) return res.status(403).send({ message: "Transfer Not Found" })
-   if(trans.status === 'Declined') return res.status(200).send({message: 'Transfer Declined',data: trans})
-    await User.findOneAndUpdate({account_number: trans.receiver}, {
+    if (!trans) return res.status(403).send({ message: "Transfer Not Found" })
+    if (trans.status === 'Declined') return res.status(200).send({ message: 'Transfer Declined', data: trans })
+    await User.findOneAndUpdate({ account_number: trans.receiver }, {
       $inc: {
         balance: trans.amount
       }
     });
     const upOwner = await User.findById(trans.owner);
-    newBalance =  upOwner.balance - trans.amount
-    await User.findByIdAndUpdate(trans.owner,{
+    newBalance = upOwner.balance - trans.amount
+    await User.findByIdAndUpdate(trans.owner, {
       $set: {
         balance: newBalance
       }
