@@ -1,0 +1,283 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Bank",
+		"_postman_id": "4a91d44e-3f6a-6491-1171-6078c01daaa5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "User Signin",
+					"request": {
+						"url": "localhost:6969/auth/signin",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "",
+								"value": "",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@gmail.com\",\n\t\"password\": \"zxcvbnm!23\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"url": "localhost:6969/user",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGJjMjQzMmVlNTJmZDYzOTM3MzMxIiwiaWF0IjoxNjM5MjM0NjMxfQ.0jG-hP00PTNTfSH9lZ375W2UYDNBMlKIxE_PwLm6dRU",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trasactions",
+			"description": "",
+			"item": [
+				{
+					"name": "Deposite",
+					"request": {
+						"url": "localhost:6969/transactions/deposite",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGJjMjQzMmVlNTJmZDYzOTM3MzMxIiwiaWF0IjoxNjM5MjM0NjMxfQ.0jG-hP00PTNTfSH9lZ375W2UYDNBMlKIxE_PwLm6dRU",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"Deposite\",\n\t\"amount\": \"100\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Withdrawal",
+					"request": {
+						"url": "localhost:6969/transactions/withdraw",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGJjMjQzMmVlNTJmZDYzOTM3MzMxIiwiaWF0IjoxNjM5MjM0NjMxfQ.0jG-hP00PTNTfSH9lZ375W2UYDNBMlKIxE_PwLm6dRU",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"Withdraw\",\n\t\"amount\": \"20\",\n\t\"pin\": \"2222\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Single Transaction",
+					"request": {
+						"url": "localhost:6969/transactions/me/61b4dc8b279d38038e07e6f6",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGFhYmQzZmVhM2I2ZjFiYWIwOGQ4IiwiaWF0IjoxNjM5MjMwMzU2fQ.RU6MBctiNZPjJQ_GOiKLZp2tbTTLIn3F1lW_EU8PKHs",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "All Transactions",
+					"request": {
+						"url": {
+							"raw": "localhost:6969/transactions/me?sortBy=created_at:acs",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"transactions",
+								"me"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "created_at:acs",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGFhYmQzZmVhM2I2ZjFiYWIwOGQ4IiwiaWF0IjoxNjM5MjMwMzU2fQ.RU6MBctiNZPjJQ_GOiKLZp2tbTTLIn3F1lW_EU8PKHs",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer",
+					"request": {
+						"url": "localhost:6969/transactions/transfer",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGJjMjQzMmVlNTJmZDYzOTM3MzMxIiwiaWF0IjoxNjM5MjM0NjMxfQ.0jG-hP00PTNTfSH9lZ375W2UYDNBMlKIxE_PwLm6dRU",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"Transfer\",\n\t\"pin\": \"2222\",\n\t\"amount\": \"40\",\n\t\"receiver\":\"8032743390\" \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"description": "",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"url": "localhost:6969/admin/user/signup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"Test@gmail.com\",\n\t\"password\": \"zxcvbnm!23\",\n\t\"full_name\": \"test test\",\n\t\"age\": 200,\n\t\"transaction_pin\": \"2290\",\n\t\"account_number\": \"1234567888\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"url": "localhost:6969/admin/user/delete/61b4c9a2761ba0009e46cdbb",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Disable User",
+					"request": {
+						"url": "localhost:6969/admin/user/disable/61b4c9a2761ba0009e46cdbb",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Transaction",
+					"request": {
+						"url": {
+							"raw": "localhost:6969/admin/transaction/61b4de9bd0d103b78aac5c62?status=approve",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"admin",
+								"transaction",
+								"61b4de9bd0d103b78aac5c62"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "approve",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"url": "localhost:6969/ping",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,48 @@
+REFACTOR CODE AFTER SHOWING IT TO VIC
+User   
+ ✔👍 Signin - /auth/siginin
+ ✔👍 Deposite Money - POST/transactions/deposite
+ ✔👍 Withdraw Money - POST/transactions/Withdraw
+  ✔👍 Transfer To Another User - POST/transactions/transfer
+ ✔👍 View all Transactions - GET/transactions/me  //check this route again{refactor}
+  ✔👍 View One Transactions - GET/transactions/me/:id    //check this route again{refactor}
+ 
+Admin
+ ✔👍 Add User - POST/admin/create 
+ ✔👍 Delete Users - DELETE/admin/delete  
+✔👍 Reverse Transactions - POST/admin/transactions/:transactions_id
+✔👍 Disable User - POST/admin/user/:user_id /////find how to make a user cant login if disabled
+
+{ USERS FUNCTIONALITIES
+Transactions  
+//somto somto  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGFhYmQzZmVhM2I2ZjFiYWIwOGQ4IiwiaWF0IjoxNjM5MjMwMzU2fQ.RU6MBctiNZPjJQ_GOiKLZp2tbTTLIn3F1lW_EU8PKHs" 
+
+Deposite: 30, 50 ,20
+Withdraw: 10, 10, 10 
+All Transactions: 6
+Single Post: 
+Total Amount Before Transfer to Henry: 
+Transfer to Henry: 10
+Total Amount After Transfers to Henry: ----
+"email": "somto@gmail.com",
+"full_name": "Somto Somto",
+ "transaction_pin": "2000",
+"account_number": 8032743390
+
+//////////////////////////////////////////////////////////////////////////////////////
+//henry henry eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGJjMjQzMmVlNTJmZDYzOTM3MzMxIiwiaWF0IjoxNjM5MjM0NjMxfQ.0jG-hP00PTNTfSH9lZ375W2UYDNBMlKIxE_PwLm6dRU
+
+
+Deposites: 100 , 100
+Withdraw: 20 
+All Transactions: 3
+Total Amount before Transfer to Menez: 
+Transfers to Menez : 40,  40
+Total Amount After Transfers to Menez: ----
+Single Post: working
+Pin: 2222
+email: henry@gmail.com
+password: qwertyuiop,
+account_number: 1234567890
+}
+ 
