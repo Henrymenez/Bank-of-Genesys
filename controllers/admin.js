@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
+const multer = require("multer")
+const sharp = require("sharp")
 const User = require("../models/user")
 const Transaction = require("../models/transactions")
 const JWT_SECRET_KEY = 'thisismytokencode'
@@ -99,6 +101,24 @@ admin.updateTransaction = async (req, res) => {
     res.status(400).send({ message: "Couldn't Approve Transfer", error })
   }
 }
+
+//User Profile Image
+
+
+admin.uploadImage = async (req, res) => {
+
+  const user = await User.findById(req.params.user_id);
+  if(!user) return res.status(403).send('User not found')
+  if (!req.file) return res.status(400).send({error: "Please Upload an image"})
+  const buffer = await sharp(req.file.buffer).png().resize({ width: 250, height: 250 }).toBuffer()
+  user.avatar = buffer
+  await user.save()
+  res.send()
+}, (error, req, res, next) => {
+  res.status(400).send({ error: error.message })
+}
+
+
 
 
 module.exports = admin

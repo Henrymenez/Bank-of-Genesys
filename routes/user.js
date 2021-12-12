@@ -5,6 +5,7 @@ const userController = require("./../controllers/user")
 
 
 router.get("/", auth(), status(), userController.getOne)
+router.get("/:user_id/avatar", userController.getImage)
 
 
 module.exports = router

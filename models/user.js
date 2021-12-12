@@ -20,6 +20,9 @@ const userSchema = new Schema({
         type: Boolean,
         default: true
     },
+    avatar: {
+        type: Buffer
+    },
     password: {
         required: true,
         type: String,
