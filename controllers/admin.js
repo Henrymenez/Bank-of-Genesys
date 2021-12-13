@@ -4,7 +4,7 @@ const multer = require("multer")
 const sharp = require("sharp")
 const User = require("../models/user")
 const Transaction = require("../models/transactions")
-const JWT_SECRET_KEY = 'thisismytokencode'
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
 
 const admin = {}
 
