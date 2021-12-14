@@ -15,7 +15,7 @@ Admin
 
 { USERS FUNCTIONALITIES
 Transactions  
-//somto somto  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGFhYmQzZmVhM2I2ZjFiYWIwOGQ4IiwiaWF0IjoxNjM5MjMwMzU2fQ.RU6MBctiNZPjJQ_GOiKLZp2tbTTLIn3F1lW_EU8PKHs" 
+//somto somto  
 
 Deposite: 30, 50 ,20
 Withdraw: 10, 10, 10 
@@ -30,7 +30,7 @@ Total Amount After Transfers to Henry: ----
 "account_number": 8032743390
 
 //////////////////////////////////////////////////////////////////////////////////////
-//henry henry eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiNGJjMjQzMmVlNTJmZDYzOTM3MzMxIiwiaWF0IjoxNjM5MjM0NjMxfQ.0jG-hP00PTNTfSH9lZ375W2UYDNBMlKIxE_PwLm6dRU
+//henry henry eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiOGE2M2NkY2ZmNDEwMDhhZjM4MGZjIiwiaWF0IjoxNjM5NDkxMTcxfQ.VCdPQ4erFjHIPZhm9g92aAdzBwWO-lMHGI3PxnzpZbQ
 
 
 Deposites: 100 , 100
@@ -40,9 +40,11 @@ Total Amount before Transfer to Menez:
 Transfers to Menez : 40,  40
 Total Amount After Transfers to Menez: ----
 Single Post: working
-Pin: 2222
-email: henry@gmail.com
-password: qwertyuiop,
-account_number: 1234567890
+"email": "Henry@gmail.com",
+	"password": "zxcvbnm!23",
+	"full_name": "henry henry",
+	"age": 20,
+	"transaction_pin": "2290",
+	"account_number": "1234567888"
 }
  

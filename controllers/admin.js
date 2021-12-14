@@ -12,14 +12,18 @@ admin.signup = async (req, res) => {
   const data = req.body
 
   try {
+    if (data.password.length < 7) return res.status(400).send({ error: 'Password should be at least 7 characters' })
+    if (data.age < 18) return res.status(400).send({ error: 'should be at least 18 years' })
+    if (data.transaction_pin.length != 4) return res.status(400).send({ error: 'Pin should be only 4 characters' })
     const passwordHash = await bcrypt.hash(data.password, 10)
+    const accountNumber = Math.floor(Math.random() * 10000000000)
     const user = await new User({
       email: data.email,
       password: passwordHash,
       full_name: data.full_name,
       age: data.age,
       transaction_pin: data.transaction_pin,
-      account_number: data.account_number
+      account_number: accountNumber
     }).save()
 
     const token = jwt.sign({ userId: user._id }, JWT_SECRET_KEY, { expiresIn: 50 * 10 })
@@ -108,8 +112,8 @@ admin.updateTransaction = async (req, res) => {
 admin.uploadImage = async (req, res) => {
 
   const user = await User.findById(req.params.user_id);
-  if(!user) return res.status(403).send('User not found')
-  if (!req.file) return res.status(400).send({error: "Please Upload an image"})
+  if (!user) return res.status(403).send('User not found')
+  if (!req.file) return res.status(400).send({ error: "Please Upload an image" })
   const buffer = await sharp(req.file.buffer).png().resize({ width: 250, height: 250 }).toBuffer()
   user.avatar = buffer
   await user.save()
