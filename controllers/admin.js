@@ -71,7 +71,8 @@ admin.disable = async (req, res) => {
     res.status(400).send({ message: "Couldn't Disable user", error })
   }
 }
-
+//Post url/transaction_id?query "approve, to Approve. decline, to Decline"
+//if you add no query parameter it will be approved by default
 admin.updateTransaction = async (req, res) => {
   try {
     const status = {};
